@@ -10,7 +10,7 @@ export function handleCoordinates(input) {
       if (newArray.length != 2) {
         Alert.alert("Uh oh", "Only two numbers are allowed in the field! Please try again");
       }
-      return coordinates;
+      return newArray;
     } else {
       Alert.alert("Uh oh", "Only positive numbers are allowed in these fields. Please try again");
     }

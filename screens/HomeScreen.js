@@ -10,9 +10,9 @@ export default function HomeScreen() {
   const ccPoint = ["N", "E", "S", "W"];
   const [plateu, setPlateu] = useState();
   const [startPos, setStartPos] = useState();
+  const [endPos, setEndPos] = useState();
   const [compassPoint, setCompassPoint] = useState("N");
   const [directions, setDirections] = useState();
-  const [output, setOutput] = useState();
 
   function handleSubmission() {
     const formattedPlateu = handleCoordinates(plateu);
@@ -22,16 +22,72 @@ export default function HomeScreen() {
     const instructions = formattedDirections.split("");
     // logic to get output
     // if L or R change the CCPOINT
-    console.log(ccPoint.indexOf(compassPoint));
+    console.log("compass point:", compassPoint);
     console.log(instructions);
-    let cc = compassPoint;
+    console.log(compassPoint);
+    console.log("start pos:", formattedStartPos);
+    console.log("plateu:", formattedPlateu);
+    let cc = ccPoint.indexOf(compassPoint);
+    let x = formattedStartPos[0];
+    console.log(x);
+    let y = formattedStartPos[1];
+    console.log(y);
     for (let i = 0; i < instructions.length; i++) {
       console.log(instructions[i]);
-    }
+      if (instructions[i] === "L") {
+        switch (cc) {
+          case 0:
+            cc = 3;
+            break;
+          case 1:
+            cc = 0;
+            break;
+          case 2:
+            cc = 1;
+            break;
+          case 3:
+            cc = 2;
+            break;
+        }
+      }
+      if (instructions[i] === "R") {
+        switch (cc) {
+          case 0:
+            cc = 1;
+            break;
+          case 1:
+            cc = 2;
+            break;
+          case 2:
+            cc = 3;
+            break;
+          case 3:
+            cc = 0;
+            break;
+        }
+      }
+      if (instructions[i] === "M") {
+        switch (cc) {
+          case 0:
+            y = parseInt(y) + 1;
+            break;
+          case 1:
+            x = parseInt(x) + 1;
+            break;
+          case 2:
+            y = parseInt(y) - 1;
+            break;
+          case 3:
+            x = parseInt(x) - 1;
+            break;
+        }
 
-    // Move +1 or -1 depending on CCPOINT
-    // if N or S == +1 y or -1 y
-    // if E or W == +1 x or -1 x
+        console.log(x + " " + y);
+      }
+    }
+    console.log(endPos);
+    setCompassPoint(ccPoint[cc]);
+    setEndPos(x + " " + y);
   }
 
   return (
@@ -102,7 +158,13 @@ export default function HomeScreen() {
       <View style={styles.container}>
         <InformationText>Output</InformationText>
         <View style={styles.output}>
-          <InformationText>Future Output</InformationText>
+          {endPos ? (
+            <InformationText>
+              {endPos} {compassPoint}
+            </InformationText>
+          ) : (
+            ""
+          )}
         </View>
       </View>
     </View>
