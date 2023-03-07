@@ -48,6 +48,10 @@ Expected Output:
 
 I have chosen to complete this task on React Native to hone my skills, as well as hoping to achieve a stage where the problem can be visualised using images and animations instead of just plain text.
 
+https://github.com/mithi/react-philosophies
+
+While coding I have tried to implement the philosophy that is spoken about within this github.
+
 # Assumptions
 
 ## Design

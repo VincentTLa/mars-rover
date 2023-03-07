@@ -11,12 +11,13 @@ import move from '../helper/rover';
 export default function HomeScreen() {
   const ccPoint = ['N', 'E', 'S', 'W'];
 
-  // plateu size set
+  // plateu size
   const [plateu, setPlateu] = useState();
 
   // rover start pos and end pos
   const [startPos, setStartPos] = useState();
   const [endPos, setEndPos] = useState();
+
   // starting compass direction
   const [compassPoint, setCompassPoint] = useState(ccPoint[0]);
 
@@ -24,16 +25,21 @@ export default function HomeScreen() {
   const [directions, setDirections] = useState();
 
   function handleSubmission() {
-    const formattedPlateu = handleCoordinates(plateu);
-    const formattedStartPos = handleCoordinates(startPos);
-    const formattedDirections = handleDirections(directions);
-    const instructions = formattedDirections.split('');
+    try {
+      // Validators
+      const formattedPlateu = handleCoordinates(plateu);
+      const formattedStartPos = handleCoordinates(startPos);
+      const formattedDirections = handleDirections(directions);
+      if (formattedDirections !== undefined) {
+        // Splits the instructions into an array of char
+        const instructions = formattedDirections.split('');
+        const end = move(instructions, formattedStartPos, compassPoint, formattedPlateu);
 
-    const end = move(instructions, formattedStartPos, compassPoint);
-    setEndPos(end.split(''));
-    console.log(formattedPlateu);
-    console.log(formattedStartPos);
-    console.log(end);
+        setEndPos(end);
+      }
+    } catch (error) {
+      throw new Error(error);
+    }
   }
 
   return (
@@ -91,6 +97,7 @@ export default function HomeScreen() {
         <InformationText>Directions</InformationText>
         <TextInput
           style={styles.input}
+          autoCapitalize="characters"
           placeholder="LRMMLRMRLMR"
           onChangeText={(text) => setDirections(text)}
         />

@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-function move(instructions, position, compassPoint) {
+function move(instructions, position, compassPoint, grid) {
   for (let i = 0; i < instructions.length; i += 1) {
     // turn left
     if (instructions[i] === 'L') {
@@ -34,9 +34,17 @@ function move(instructions, position, compassPoint) {
       } else if (compassPoint === 'W') {
         position[0] -= 1;
       }
+      checkPlateu(grid, position);
     }
   }
   return `${position[0]} ${position[1]} ${compassPoint}`;
+}
+
+function checkPlateu(plateu, pos) {
+  if (pos[0] > plateu[0] || pos[1] > plateu[1]) {
+    return console.log('The rover has fallen out of bounds!', pos, plateu);
+  }
+  return false;
 }
 
 export default move;

@@ -7,10 +7,11 @@ export function handleCoordinates(input) {
     const coordinates = input.trim();
     if (re.test(coordinates)) {
       const newArray = coordinates.split(' ');
+      const newNumArray = newArray.map(Number);
       if (newArray.length !== 2) {
         return Alert.alert('Uh oh', 'Only two numbers are allowed in the field! Please try again');
       }
-      return newArray;
+      return newNumArray;
     }
     return Alert.alert(
       'Uh oh',
@@ -20,14 +21,10 @@ export function handleCoordinates(input) {
   return Alert.alert('Uh oh', 'Seems like you left an empty field. Please try again');
 }
 
-export function handleStartPosition(coordinates, ccPoint) {
-  return `${coordinates} ${ccPoint}`;
-}
-
 export function handleDirections(input) {
   const re = /^[LRM]+$/;
-  const formattedInput = input.replace(/[\s]/g, '');
   if (input) {
+    const formattedInput = input.replace(/[\s]/g, '');
     if (re.test(formattedInput)) {
       return formattedInput;
     }
