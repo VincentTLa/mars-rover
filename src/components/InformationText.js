@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function InformationText({ children }) {
   return (
@@ -11,7 +11,7 @@ export default function InformationText({ children }) {
 
 const styles = StyleSheet.create({
   info: {
-    fontFamily: "roboto-light",
+    fontFamily: 'roboto-light',
     fontSize: 16,
   },
 });

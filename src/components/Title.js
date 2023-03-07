@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
-export default function Title({ children, style, fontSize }) {
+export default function Title({ children, style }) {
   return (
     <View>
       <Text style={[styles.title, style]}>{children}</Text>
@@ -12,6 +12,6 @@ export default function Title({ children, style, fontSize }) {
 const styles = StyleSheet.create({
   title: {
     fontSize: 26,
-    fontFamily: "roboto-bold",
+    fontFamily: 'roboto-bold',
   },
 });

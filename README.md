@@ -50,7 +50,14 @@ I have chosen to complete this task on React Native to hone my skills, as well a
 
 # Assumptions
 
-Assumptions made while coding:
+## Design
+
+To limit user error, I have split the inputs to their respective input fields, which is then validated.
+The _size of the plateu_ and the _starting position_ are limited to entering only two numbers.
+
+For a future implementation, I have set the application to be a Stack Navigation. This is for a potential animation screen to show, where once user submits, the animation will play showing the rover's steps and outputs.
+
+## Assumptions made while coding:
 
 - If the rover was to move off the plateu then it would be considered gone.
 - Rover cannot start outside of the plateu

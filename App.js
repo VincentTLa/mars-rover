@@ -1,15 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import Navigation from "./navigation/Navigation";
-import { useFonts } from "expo-font";
-import LoadingOverlay from "./components/LoadingOverlay";
+/* eslint-disable global-require */
+import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, View } from 'react-native';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useFonts } from 'expo-font';
+import Navigation from './src/navigation/Navigation';
+import LoadingOverlay from './src/components/LoadingOverlay';
 
 export default function App() {
   // TODO
   // Get input for Plateu
   // Cannot be less than 0,0
   // Cannot have negative co-ordiantes
-  /////////////// DONE ///////////////
 
   // Get rover start pos
   // Cannot be out of bounds pos
@@ -22,10 +24,10 @@ export default function App() {
   // ASSUMPTIONS: goes off map = ded
 
   const [loaded] = useFonts({
-    "roboto-light": require("./assets/fonts/Roboto/Roboto-Light.ttf"),
-    "roboto-regular": require("./assets/fonts/Roboto/Roboto-Regular.ttf"),
-    "roboto-medium": require("./assets/fonts/Roboto/Roboto-Medium.ttf"),
-    "roboto-bold": require("./assets/fonts/Roboto/Roboto-Bold.ttf"),
+    'roboto-light': require('./assets/fonts/Roboto/Roboto-Light.ttf'),
+    'roboto-regular': require('./assets/fonts/Roboto/Roboto-Regular.ttf'),
+    'roboto-medium': require('./assets/fonts/Roboto/Roboto-Medium.ttf'),
+    'roboto-bold': require('./assets/fonts/Roboto/Roboto-Bold.ttf'),
   });
 
   if (!loaded) {
@@ -34,6 +36,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      {/* eslint-disable-next-line react/style-prop-object */}
       <StatusBar style="light" />
       <Navigation />
     </View>
@@ -43,6 +46,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
 });
