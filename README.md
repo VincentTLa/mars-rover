@@ -63,8 +63,9 @@ For a future implementation, I have set the application to be a Stack Navigation
 
 ## Assumptions made while coding:
 
-- If the rover was to move off the plateu then it would be considered gone.
+- If the rover was outside of plateu then it is considered as 'fallen'.
 - Rover cannot start outside of the plateu
+- The Compass Points are N,E,S,W only
 
 # Running the code
 

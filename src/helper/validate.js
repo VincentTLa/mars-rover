@@ -26,7 +26,7 @@ export function handleDirections(input) {
   if (input) {
     const formattedInput = input.replace(/[\s]/g, '');
     if (re.test(formattedInput)) {
-      return formattedInput;
+      return formattedInput.split('');
     }
     return Alert.alert(
       'Uh oh',

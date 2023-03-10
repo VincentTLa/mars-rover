@@ -6,40 +6,32 @@ import Title from '../components/Title';
 import InformationText from '../components/InformationText';
 import Submit from '../components/Submit';
 import { handleCoordinates, handleDirections } from '../helper/validate';
-import move from '../helper/rover';
+import { navigate } from '../helper/rover';
 
 export default function HomeScreen() {
   const ccPoint = ['N', 'E', 'S', 'W'];
 
   // plateu size
-  const [plateu, setPlateu] = useState();
+  const [plateu, setPlateu] = useState('0 0');
 
   // rover start pos and end pos
-  const [startPos, setStartPos] = useState();
-  const [endPos, setEndPos] = useState();
+  const [startPos, setStartPos] = useState('0 0');
+  const [endPos, setEndPos] = useState('');
 
   // starting compass direction
   const [compassPoint, setCompassPoint] = useState(ccPoint[0]);
 
   // user input for rover directions
-  const [directions, setDirections] = useState();
+  const [directions, setDirections] = useState('');
 
   function handleSubmission() {
-    try {
-      // Validators
-      const formattedPlateu = handleCoordinates(plateu);
-      const formattedStartPos = handleCoordinates(startPos);
-      const formattedDirections = handleDirections(directions);
-      if (formattedDirections !== undefined) {
-        // Splits the instructions into an array of char
-        const instructions = formattedDirections.split('');
-        const end = move(instructions, formattedStartPos, compassPoint, formattedPlateu);
-
-        setEndPos(end);
-      }
-    } catch (error) {
-      throw new Error(error);
-    }
+    // Validators
+    const formattedPlateu = handleCoordinates(plateu);
+    const formattedStartPos = handleCoordinates(startPos);
+    const formattedDirections = handleDirections(directions);
+    // Splits the instructions into an array of char
+    const end = navigate(formattedDirections, formattedStartPos, compassPoint, formattedPlateu);
+    setEndPos(end);
   }
 
   return (

@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import React from 'react';
 import { Button, StyleSheet, View, Platform } from 'react-native';
 import { Colors } from '../constants/styles';
