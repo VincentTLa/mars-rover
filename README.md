@@ -76,3 +76,9 @@ and then run the project using
 
 To view the project either use a device simulator such as XCode or Android studio.
 The project can also be viewed on your own personal device using the Expo Go application. This can be run by scanning the QR code that is shown on terminal from running `npm start`
+
+To test the application, run `npm run test`
+
+# Reflection
+
+When coding on future projects, I should follow a TDD approach and keep in mind of SOLID principles. I should also become more familiar with testing in jest.
