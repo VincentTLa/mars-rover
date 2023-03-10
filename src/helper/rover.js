@@ -19,6 +19,7 @@ export function navigate(instructions, position, compassPoint, grid) {
 }
 
 export function turnLeft(compassPoint) {
+  // Changes the compassPoint depending on value
   if (compassPoint === 'N') {
     compassPoint = 'W';
   } else if (compassPoint === 'E') {
@@ -34,6 +35,7 @@ export function turnLeft(compassPoint) {
 }
 
 export function turnRight(compassPoint) {
+  // Changes compassPoint depending on value
   if (compassPoint === 'N') {
     compassPoint = 'E';
   } else if (compassPoint === 'E') {
@@ -49,6 +51,7 @@ export function turnRight(compassPoint) {
 }
 
 export function move(position, compassPoint) {
+  // Increase / decreases the x,y depending on compassPoint
   if (compassPoint === 'N') {
     position[1] += 1;
   } else if (compassPoint === 'E') {
@@ -64,6 +67,7 @@ export function move(position, compassPoint) {
 }
 
 export function checkPlateu(plateu, pos) {
+  // Checks the position x,y against the plateu x,y
   if (pos[0] > plateu[0] || pos[1] > plateu[1] || pos[0] < 0 || pos[1] < 0) {
     return true;
   }

@@ -1,6 +1,6 @@
 import { turnLeft, turnRight, move, checkPlateu } from '../../src/helper/rover';
 
-describe('Rover turning left', () => {
+describe('Testing rover turning left', () => {
   it('given a compassPoint N, turnLeft() returns compassPoint W', () => {
     expect(turnLeft('N')).toEqual('W');
   });
@@ -21,7 +21,7 @@ describe('Rover turning left', () => {
   });
 });
 
-describe('Rover turning  right', () => {
+describe('Testing rover turning  right', () => {
   it('given a compassPoint N, turnRight() returns compassPoint E', () => {
     expect(turnRight('N')).toEqual('E');
   });
@@ -42,7 +42,7 @@ describe('Rover turning  right', () => {
   });
 });
 
-describe('Rover moving forward', () => {
+describe('Testing rover moving forward', () => {
   it('given a compass point N, move() returns a position of 0,1', () => {
     expect(move([0, 0], 'N')).toEqual([0, 1]);
   });
@@ -57,7 +57,7 @@ describe('Rover moving forward', () => {
   });
 });
 
-describe('Checking the Plateu', () => {
+describe('Testing the Plateu input', () => {
   it('given a position is in range of plateu, return false', () => {
     expect(checkPlateu([5, 5], [1, 5])).toEqual(false);
   });

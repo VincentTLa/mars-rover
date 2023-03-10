@@ -16,6 +16,7 @@ export default function Navigation() {
           name="Home"
           component={HomeScreen}
         />
+        {/* In Game Screen is for future where it would play the animation of the rover */}
         <Stack.Screen
           name="InGame"
           component={InGameScreen}

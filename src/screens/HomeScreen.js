@@ -9,6 +9,7 @@ import { handleCoordinates, handleDirections } from '../helper/validate';
 import { navigate } from '../helper/rover';
 
 export default function HomeScreen() {
+  // the cardinal compass points
   const ccPoint = ['N', 'E', 'S', 'W'];
 
   // plateu size
@@ -24,12 +25,12 @@ export default function HomeScreen() {
   // user input for rover directions
   const [directions, setDirections] = useState('');
 
+  // validates and formats all inputs once submit button is hit
   function handleSubmission() {
     // Validators
     const formattedPlateu = handleCoordinates(plateu);
     const formattedStartPos = handleCoordinates(startPos);
     const formattedDirections = handleDirections(directions);
-    // Splits the instructions into an array of char
     const end = navigate(formattedDirections, formattedStartPos, compassPoint, formattedPlateu);
     setEndPos(end);
   }
