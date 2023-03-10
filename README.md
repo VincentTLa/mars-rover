@@ -44,6 +44,13 @@ Expected Output:
 
 5 1 E
 
+# Application
+
+
+https://user-images.githubusercontent.com/37315218/224194469-61172f15-afa6-48c3-9267-b7b52be60328.mov
+
+
+
 # Philosophy
 
 I have chosen to complete this task on React Native to hone my skills, as well as hoping to achieve a stage where the problem can be visualised using images and animations instead of just plain text.
@@ -68,6 +75,8 @@ For a future implementation, I have set the application to be a Stack Navigation
 - The Compass Points are N,E,S,W only
 
 # Running the code
+
+To start with, clone the project. Then,
 
 To run the project locally, simply install packages on the folder using
 `npm install`
